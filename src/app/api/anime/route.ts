@@ -3,7 +3,8 @@ import { NextRequest } from "next/server";
 import * as cheerio from "cheerio";
 import { AnimeEpsData } from "@/types/types";
 
-async function handler(req: NextRequest) {
+export const dynamic = "force-dynamic";
+export async function GET(req: NextRequest) {
   if (req.method === "GET") {
     try {
       const params = req.nextUrl.searchParams;
@@ -117,5 +118,3 @@ async function handler(req: NextRequest) {
     );
   }
 }
-
-export { handler as GET };

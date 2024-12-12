@@ -3,7 +3,8 @@ import * as cheerio from "cheerio";
 import { NextRequest, NextResponse } from "next/server";
 import { searchInteface } from "@/types/types";
 
-async function handler(req: NextRequest) {
+export const dynamic = "force-dynamic";
+export async function GET(req: NextRequest) {
   if (req.method === "GET") {
     try {
       const params = req.nextUrl.searchParams;
@@ -85,5 +86,3 @@ async function handler(req: NextRequest) {
     );
   }
 }
-
-export { handler as GET };

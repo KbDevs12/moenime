@@ -4,7 +4,7 @@ import * as cheerio from "cheerio";
 import { animeData } from "@/types/types";
 
 export const dynamic = "force-dynamic";
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET() {
   try {
     const response = await MoeFecher("/");
 

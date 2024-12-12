@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import * as cheerio from "cheerio";
 import { EpisodeInterfaces } from "@/types/types";
 
-async function handler(req: NextRequest, res: NextResponse) {
+async function handler(req: NextRequest) {
   if (req.method === "GET") {
     try {
       const params = req.nextUrl.searchParams;

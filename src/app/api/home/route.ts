@@ -1,5 +1,4 @@
 import MoeFecher from "@/libs/MoeFetcher";
-import { type NextRequest, type NextResponse } from "next/server";
 import * as cheerio from "cheerio";
 import { animeData } from "@/types/types";
 

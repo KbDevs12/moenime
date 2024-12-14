@@ -6,16 +6,18 @@ import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { Tooltip } from "react-tooltip";
 
-export default function Search() {
+interface SearchProps {
+  query: string;
+}
+
+export default function Search(params: SearchProps) {
   const [searchData, setSearchData] = useState<searchInteface[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const params = useSearchParams();
-  const query = params.get("query");
 
   useEffect(() => {
     const fetchSearchResults = async () => {
-      if (!query) {
+      if (!params.query) {
         setLoading(false);
         return;
       }
@@ -23,7 +25,7 @@ export default function Search() {
       try {
         setLoading(true);
         const response = await fetch(
-          `/api/search?query=${encodeURIComponent(query)}`
+          `/api/search?query=${encodeURIComponent(params.query)}`
         );
 
         if (!response.ok) {
@@ -43,9 +45,9 @@ export default function Search() {
     };
 
     fetchSearchResults();
-  }, [query]);
+  }, [params.query]);
 
-  if (!query) {
+  if (!params.query) {
     return (
       <div className="flex items-center justify-center h-screen text-violet-700">
         <p className="text-2xl font-semibold">Masukkan kata kunci pencarian</p>
@@ -58,7 +60,7 @@ export default function Search() {
       <div className="container mx-auto px-4 py-8">
         <section className="mb-10">
           <h1 className="text-3xl font-semibold text-violet-700 mb-4">
-            Hasil Pencarian: "{query}"
+            Hasil Pencarian: "{params.query}"
           </h1>
 
           {loading ? (

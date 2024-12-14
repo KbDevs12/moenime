@@ -3,6 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 import * as cheerio from "cheerio";
 import { EpisodeInterfaces } from "@/types/types";
 
+export const revalidate = 3600;
+
 async function handler(req: NextRequest) {
   if (req.method === "GET") {
     try {

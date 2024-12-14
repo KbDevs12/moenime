@@ -4,6 +4,8 @@ import * as cheerio from "cheerio";
 import { AnimeEpsData } from "@/types/types";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 3600;
+
 export async function GET(req: NextRequest) {
   if (req.method === "GET") {
     try {

@@ -3,6 +3,8 @@ import * as cheerio from "cheerio";
 import { animeData } from "@/types/types";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 3600;
+
 export async function GET() {
   try {
     const response = await MoeFecher("/");

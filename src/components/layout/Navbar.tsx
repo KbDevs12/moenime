@@ -25,7 +25,7 @@ export default function Navbar() {
         setIsOpen(false);
       }
 
-      router.push(`/search?query=${encodeURIComponent(trimmedQuery)}`);
+      router.push(`/search/${encodeURIComponent(trimmedQuery)}`);
     }
 
     setSearchQuery("");

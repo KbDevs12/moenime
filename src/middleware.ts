@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const allowedOrigin =
-  process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  process.env.NEXT_PUBLIC_BASE_URL || "https://moe.devv.my.id";
 
 export function middleware(req: NextRequest) {
   const origin = req.headers.get("origin");

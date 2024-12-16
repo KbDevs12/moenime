@@ -108,7 +108,7 @@ export async function GET(req: NextRequest) {
       return Response.json({ data }, { status: 200 });
     } catch (error) {
       console.error("Error fetching anime details:", error);
-      return Response.json({ error: "Internal server error" }, { status: 500 });
+      return Response.json({ error: error }, { status: 500 });
     }
   } else {
     return Response.json(

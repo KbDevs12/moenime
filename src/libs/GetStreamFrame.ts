@@ -40,7 +40,6 @@ export async function GetStreamFrame(
     );
 
     const result = Buffer.from(response.data.data, "base64").toString("utf-8");
-
     return result;
   } catch (error) {
     console.error("Terjadi kesalahan:", error);
